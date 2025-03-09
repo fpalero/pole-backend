@@ -9,7 +9,10 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "docker:build": "docker build --build-arg NODE_ENV=production -t ghcr.io/fpalero/poleprojectstrapi:latest -f Dockerfile.prod .",
+    "docker:run": "docker run --env-file .env -p 1337:1337 --rm -it ghcr.io/fpalero/poleprojectstrapi:latest sh",
+    "docker:push": "docker push ghcr.io/fpalero/poleprojectstrapi:latest" 
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.10.4",
