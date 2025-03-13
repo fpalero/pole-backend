@@ -33,11 +33,49 @@ yarn build
 ```
 
 ## ⚙️ Deployment
+### DEV
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+For deployment on DEV environment use the following commands:
 
 ```
-yarn strapi deploy
+# 1 - Build the dev image defined on Dokerfile.dev
+npm run docker:build-dev
+
+# 2 - Push the build dev image
+npm run docker:push-dev
+
+# 3 - Access to the server via SSH and pull the docker image
+docker pull ghcr.io/fpalero/poleprojectstrapi-dev:latest
+```
+
+### PROD
+For deployment on PROD environment use the following commands:
+
+```
+# 1 - Build the prod image defined on Dokerfile.prod
+npm run docker:build-prod
+
+# 2 - Push the build prod image
+npm run docker:push-prod
+
+# 3 - Access to the server via SSH and pull the docker image
+docker pull ghcr.io/fpalero/poleprojectstrapi:latest
+```
+
+## Run Docker
+For trying that the docker image is create correctly run:
+```
+# Run the DEV image using the local.env variable. 
+# The local configuration uses the SQLITE Database
+npm run docker:run-local
+
+# Run the DEV image using the remote.env variable
+# The remote configuration uses the Mysql Database
+npm run docker:run-dev
+
+# Run the PROD image using the remote.env variable
+# The remote configuration uses the Mysql Database
+npm run docker:run-dev
 ```
 
 ## 📚 Learn more
