@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tricks",
+  "info": {
+    "singularName": "trick",
+    "pluralName": "tricks",
+    "displayName": "Trick",
+    "description": "The tricks and their description"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "Progression": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trick.trick"
+    },
+    "level": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::level.level",
+      "inversedBy": "Tricks"
+    },
+    "Trick_media": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "all progressions",
+        "grip",
+        "floor work",
+        "introductory",
+        "beginner",
+        "intermediate",
+        "advance",
+        "spins/tricks/transitions"
+      ],
+      "required": true
+    }
+  }
+}

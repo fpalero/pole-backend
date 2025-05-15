@@ -6,6 +6,7 @@
   "scripts": {
     "build": "strapi build",
     "deploy": "strapi deploy",
+    "reset:admin": "strapi admin:reset-user-password --email=\"fpalero86@gmail.com\" --password=\"Admin12345\" ",
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
